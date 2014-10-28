@@ -24,6 +24,11 @@ define staging::file (
 
   include staging
 
+  # By default make all readable
+  File {
+    mode => 'ug=rw,o=r',
+  }
+
   $quoted_source = shellquote($source)
 
   if $target {
